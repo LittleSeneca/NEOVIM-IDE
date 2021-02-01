@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
 # This script installs neovim and configures it.
 # First, we need to download and then configure neovim.
 # I am going to install neovim to the /usr/local/bin directory
