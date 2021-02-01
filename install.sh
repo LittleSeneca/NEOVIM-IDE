@@ -34,8 +34,8 @@ youcompleteme_configure () {
 	echo "Installing You Complete Me Libraries"
 	mkdir ${nvim_dir}/bundle -p
 	cd ${nvim_dir}/bundle/
-	apt install build-essential cmake vim-nox python3-dev
-	apt install mono-complete golang nodejs default-jdk npm
+	apt install build-essential cmake vim-nox python3-dev -y
+	apt install mono-complete golang nodejs default-jdk npm -y
 	git clone https://github.com/ycm-core/YouCompleteMe.git
 	git submodule update --init --recursive
 	python3 install.py --clangd-completer
