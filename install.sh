@@ -41,6 +41,6 @@ youcompleteme_configure () {
 	echo "Finished Installing You Complete Me"
 }
 variables
-sudo neovim_install
-sudo youcompleteme_configure
+neovim_install
+youcompleteme_configure
 neovim_configure
