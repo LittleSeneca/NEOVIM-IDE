@@ -26,8 +26,7 @@ neovim_install () {
 	echo "Finished Installing NOVIM"
 }
 neovim_configure () {
-	mkdir ${nvim_dir} -p
-	cp ${config_dir}/init.vim 
+	cp ${config_dir}/init.vim ${nvim_dir}.init.vim 
 	nvim --headless +PlugInstall +qall
 }
 youcompleteme_configure () {
