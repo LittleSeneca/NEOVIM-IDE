@@ -8,8 +8,9 @@ variables () {
 	echo "Setting Variables"
 	export root_dir=$(pwd)
 	export config_dir=${root_dir}/config/
+	export user_home=/home/littleseneca/
 	export bin_dir="/usr/local/bin"
-	export nvim_dir="${HOME}/.config/nvim/"
+	export nvim_dir="${user_home}/.config/nvim/"
 	export nvim_url="https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz"
 	export vimplug_url="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 	echo "Finished setting variables"
@@ -20,8 +21,8 @@ neovim_install () {
 	wget ${nvim_url}
 	tar zxvf nvim-linux64.tar.gz
 	echo "export PATH=${nvim_dir}:$PATH" >> ${HOME}/.bashrc
-	echo "alias vim='nvim'" >> ${HOME}/.bashrc
-	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs ${vimplug_url}'
+	echo "alias vim='nvim'" >> ${user_home}/.bashrc
+	sh -c 'curl -fLo "${user_home}/.local/share}"/nvim/site/autoload/plug.vim --create-dirs ${vimplug_url}'
 	echo "Finished Installing NOVIM"
 }
 neovim_configure () {
