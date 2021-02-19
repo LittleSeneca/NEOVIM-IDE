@@ -20,15 +20,16 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
+Plug 'jeetsukumaran/vim-buffergator'
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'tag': '*' }
 
 " Plugin options
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+Plug 'vimlab/split-term.vim'
 
-" NerdTree plugins 
+" NerdTree plugins
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
@@ -79,20 +80,15 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-"alignment bars
-set cursorcolumn
-set cursorline
-map <leader>c :set invcursorcolumn invcursorline<CR>
-
-"hidden characters
-:set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
-:nmap <leader>s :set invlist<CR>
-
 "display line numbers:
 set number
 :nmap <C-N><C-N> :set invnumber<CR>
+set regexpengine=1
+set lazyredraw
+set ttyfast
 
-""Airline settings
+
+"Airline settings
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -112,12 +108,12 @@ autocmd BufRead,BufNewFile *.hh,*.cc set filetype=cpp.geant4
 "For ROOT syntax highlighting
 autocmd BufRead,BufNewFile *.cpp,*.h,*.C set filetype+=.root
 "2 spaces for tab in xml files
-autocmd BufRead,BufNewFile *.xml,*.dtd,*.xsd setlocal tabstop=2 shiftwidth=2
+autocmd BufRead,BufNewFile *.xml,*.dtd,*.xsd setlocal tabstop=2
 
 "Assembler sections at new
 autocmd BufNewFile *.asm read ~/.vim/yasm_new.txt
 
-"Default window split when using termdebug 
+"Default window split when using termdebug
 :packadd termdebug
 let g:termdebug_wide=1
 
@@ -125,11 +121,10 @@ let g:termdebug_wide=1
 function ChangeTab( from, to )
     set expandtab
     retab
-    let &tabstop=a:from 
+    let &tabstop=a:from
     set noexpandtab
     %retab!
     let &tabstop=a:to
     set expandtab
     %retab!
 endfunction
-
