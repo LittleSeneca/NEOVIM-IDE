@@ -128,3 +128,5 @@ function ChangeTab( from, to )
     set expandtab
     %retab!
 endfunction
+
+" Buffer Management Keybindings
